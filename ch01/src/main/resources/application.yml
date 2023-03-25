@@ -1,0 +1,9 @@
+server:
+  port: 9090
+
+
+spring:
+  output:
+    ansi:
+      enable: always
+
