@@ -1,0 +1,14 @@
+server:
+  port: 9090
+  
+
+spring:
+  output:
+    ansi:
+      enabled: always
+
+logging:
+  level:
+    com.www.ch03: DEBUG
+
+

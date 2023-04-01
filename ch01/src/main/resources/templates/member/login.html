@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/js/jquery-3.6.4.min.js"></script>
+</head>
+<script>
+</script>
+<body>
+    <form action="/member/login" method="post">
+        <div>
+            <label for="userId">아이디</label>
+            <input type="text" placeholder="id" name="userId">
+        </div>
+        <div>
+            <label for="userPw">패스워드</label>
+            <input type="password" placeholder="password" name="userPw">
+        </div>
+        <div style="margin-top: 10px;">
+            <button type="submit">로그인</button>
+            <button type="button" onclick="login()">일반버튼</button>
+            <button type="reset">리셋</button>
+        </div>
+    </form>
+    <div>
+        <button id="btnLogin">ajax login</button>
+    </div>
+    <script>
+           const data = {
+        userId : "id",
+        userPw : "pwd"
+     }          
+   
+   $(document).on("click","#btnLogin",function(){
+
+    $.ajax({
+        url : "/member/loginJson",
+        method : "post",
+        data : data,
+        success : function(response) {
+            if (response =="성공입니다") {
+                alert("로그인성공");
+            } else {
+                alert("로그인실패");
+            }
+        }
+       })
+   })
+ 
+  
+
+
+
+   
+
+  
+
+
+    </script>
+</body>
+</html>
