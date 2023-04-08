@@ -6,35 +6,59 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{/lay
 </head>
 <body>
     <div layout:fragment="contents">
-     <div class="container">
-        <!--여기서부터 내용달라짐-->
+      <div class="container">
+        <!-- 여기서 부터 달라지는 내용 -->
+        <h2>MEMBER JOIN</h2>
         <form action="/member/joinProcess" method="post">
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">userid</label>
-                <input name="userId"  type="text" class="form-control" id="exampleFormControlInput1" placeholder="USER_ID">
-              </div>
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">userid</label>
-                <input name="userName"  type="text" class="form-control" id="exampleFormControlInput1" placeholder="USER_ID">
-              </div>
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">UserpW</label>
-                <input name="userPw" type="text" class="form-control" id="exampleFormControlInput1" placeholder="PASSWORD">
-              </div>
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email</label>
-                <input name="userEmail" type="email" class="form-control" id="exampleFormControlInput1" placeholder="USEREMAIL">
-              </div>
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">address</label>
-                <input name = "userAddr" type="email" class="form-control" id="exampleFormControlInput1" placeholder="ADDR">
-              </div>
-              <div class="text-center">
-                <button class="btn btn-primary">JOJN</button>
-                <button type="reset" class="btn btn-secondary">Rest</button>
-              </div>
+          <label for="exampleFormControlInput1" class="form-label">USER ID</label>
+          <div class="input-group mb-3">
+          
+            <input name="userId" type="text" id="user" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="btnIdCheck">Button</button>
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput2" class="form-label">USER ID</label>
+            <input type="password" class="form-control" id="exampleFormControlInput2" placeholder="USER PASSWORD" name="userPw" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput5" class="form-label">USER NAME</label>
+            <input type="text" class="form-control" id="exampleFormControlInput5" placeholder="USER NAME" name="userName" />
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput3" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput3" placeholder="name@example.com" name="userEmail" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput4" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="exampleFormControlInput4" placeholder="ADDRESS" name="userAddr" />
+          </div>
+          <div class="text-center">
+            <button class="btn btn-primary">JOIN</button>
+            <button class="btn btn-secondary" type="reset">RESET</button>
+          </div>
         </form>
-     </div>
+      </div>
+      <script>
+        $("#btnIdCheck").click(function(){
+          // alert("음");
+          let userId = $("#user").val();
+          $.ajax({
+            url : "/member/idCheck",
+            data : {userId : userId},
+            type : "post",    
+            success : function (result) {
+
+              if (result > 0) {
+                alert("쓸수없는 아이디");
+              } else {
+                alert("사용가능합니다");
+              }
+            }
+          })
+        })
+       </script>
     </div>
 </body>
 </html>

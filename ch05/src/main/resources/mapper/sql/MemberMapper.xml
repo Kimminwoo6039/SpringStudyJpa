@@ -6,4 +6,9 @@
   <insert id="insertMember" parameterType="com.www.ch05.dto.MemberDto">
 INSERT INTO member2 values(MEMBER02_SEQ.NEXTVAL,#{userId},#{userPw},#{userName},#{userEmail},#{userAddr},sysdate)
   </insert>
+
+<select id="idCheck" parameterType="com.www.ch05.dto.MemberDto" resultType="Integer">
+select count(*) as count from member2 where userId = #{userId}
+</select>
+
 </mapper>
