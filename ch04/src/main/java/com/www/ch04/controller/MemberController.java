@@ -21,7 +21,7 @@ public class MemberController {
   MemberDao memberDao;
 
   @GetMapping("/member/join")
-  public String join() {
+  public String join1() {
     return "/member/join";
   }
 
