@@ -13,7 +13,7 @@
   </select>
 
   <select id="getOneMember" resultType="com.www.ch04.dto.MemberDto">
-    select * from member where userid = 'kim'
+    select * from member where userid = #{user}
   </select>
 
 </mapper>

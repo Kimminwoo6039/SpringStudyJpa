@@ -52,8 +52,8 @@ public class MemberController {
   }
 
   @GetMapping("/info")
-  public String info(Model model) {
-    MemberDto one = memberDao.getOneMember();
+  public String info(Model model, @RequestParam String userId) {
+    MemberDto one = memberDao.getOneMember(userId);
     model.addAttribute("one", one);
     return "/member/info";
   }

@@ -11,5 +11,5 @@ public interface MemberDao {
 
   List<MemberDto> getAllMember();
 
-  MemberDto getOneMember();
+  MemberDto getOneMember(String user);
 }
