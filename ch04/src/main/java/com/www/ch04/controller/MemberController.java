@@ -57,4 +57,20 @@ public class MemberController {
     model.addAttribute("one", one);
     return "/member/info";
   }
+
+  @GetMapping("/delete")
+  public String delete(Model model) {
+    return "/member/delete";
+  }
+
+  @PostMapping("/delete")
+  public String process(MemberDto memberDto, Model model) {
+    int result = memberDao.deleteMember(memberDto);
+
+    if (result == 1) {
+      return "redirect:/member/list";
+    } else {
+      return "redirect:/member/info?userId=" + memberDto.getUserId();
+    }
+  }
 }

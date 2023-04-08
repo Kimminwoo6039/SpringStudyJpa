@@ -12,4 +12,6 @@ public interface MemberDao {
   List<MemberDto> getAllMember();
 
   MemberDto getOneMember(String user);
+
+  int deleteMember(MemberDto memberDto);
 }

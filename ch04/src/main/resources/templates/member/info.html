@@ -18,6 +18,8 @@
             <th scope="col">userId</th>
             <th scope="col">userPw</th>
             <th scope="col">userName</th>
+            <th scope="col">삭제</th>
+            <th scope="col">수정</th>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +28,8 @@
             <td th:text="${one.userId}">Mark</td>
             <td th:text="${one.userPw}">Otto</td>
             <td><a href="#" th:text="${one.userName}">@mdo</a></td>
+            <td><a href="/member/delete" th:href="@{/member/delete(userId=${one.userId})}" class="btn btn-danger">회원탈퇴</a></td>
+            <td><a href="/member/modify" class="btn btn-primary">회원수정</a></td>
           </tr>
         </tbody>
       </table>

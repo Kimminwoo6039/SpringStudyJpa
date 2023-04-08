@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{/layout/layout.html}">
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <div layout:fragment="contents">
+     <div class="container">
+        <!--여기서부터 내용달라짐-->
+        <form action="/member/joinProcess" method="post">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">userid</label>
+                <input name="userId"  type="text" class="form-control" id="exampleFormControlInput1" placeholder="USER_ID">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">userid</label>
+                <input name="userName"  type="text" class="form-control" id="exampleFormControlInput1" placeholder="USER_ID">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">UserpW</label>
+                <input name="userPw" type="text" class="form-control" id="exampleFormControlInput1" placeholder="PASSWORD">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                <input name="userEmail" type="email" class="form-control" id="exampleFormControlInput1" placeholder="USEREMAIL">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">address</label>
+                <input name = "userAddr" type="email" class="form-control" id="exampleFormControlInput1" placeholder="ADDR">
+              </div>
+              <div class="text-center">
+                <button class="btn btn-primary">JOJN</button>
+                <button type="reset" class="btn btn-secondary">Rest</button>
+              </div>
+        </form>
+     </div>
+    </div>
+</body>
+</html>
