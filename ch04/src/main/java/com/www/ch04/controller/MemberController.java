@@ -10,9 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/member")
 public class MemberController {
 
   private final Logger logger = LoggerFactory.getLogger(MemberController.class);
@@ -20,12 +22,12 @@ public class MemberController {
   @Autowired
   MemberDao memberDao;
 
-  @GetMapping("/member/join")
+  @GetMapping("/join")
   public String join1() {
     return "/member/join";
   }
 
-  @PostMapping("/member/join")
+  @PostMapping("/join")
   public String joinProcess(
     @RequestParam String userId,
     @RequestParam String userPw,
@@ -42,10 +44,17 @@ public class MemberController {
     return "redirect:/member/list";
   }
 
-  @GetMapping("/member/list")
+  @GetMapping("/list")
   public String memberList(Model model, MemberDto memberDto) {
     List<MemberDto> member = memberDao.getAllMember();
     model.addAttribute("member", member);
     return "/member/list";
+  }
+
+  @GetMapping("/info")
+  public String info(Model model) {
+    MemberDto one = memberDao.getOneMember();
+    model.addAttribute("one", one);
+    return "/member/info";
   }
 }

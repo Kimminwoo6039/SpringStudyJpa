@@ -10,4 +10,6 @@ public interface MemberDao {
   int insertMember(MemberDto memberdto);
 
   List<MemberDto> getAllMember();
+
+  MemberDto getOneMember();
 }

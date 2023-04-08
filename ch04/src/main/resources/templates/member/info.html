@@ -21,11 +21,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr th:each="member:${member}" th:index="index">
-            <th scope="row" th:text="${memberStat.count}">1</th>
-            <td th:text="${member.userId}">Mark</td>
-            <td th:text="${member.userPw}">Otto</td>
-            <td><a href="/member/info" th:text="${member.userName}">@mdo</a></td>
+          <tr>
+            <th>1</th>
+            <td th:text="${one.userId}">Mark</td>
+            <td th:text="${one.userPw}">Otto</td>
+            <td><a href="/member/info" th:text="${one.userName}">@mdo</a></td>
           </tr>
         </tbody>
       </table>
